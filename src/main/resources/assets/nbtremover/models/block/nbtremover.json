@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "nbtremover:block/nbtremover",
+    "down": "nbtremover:block/nbtremover",
+    "up": "nbtremover:block/nbtremover",
+    "east": "nbtremover:block/nbtremover",
+    "west": "nbtremover:block/nbtremover",
+    "north": "nbtremover:block/nbtremover_front",
+    "south": "nbtremover:block/nbtremover"
+  }
+}

@@ -1,0 +1,27 @@
+modLoader="javafml"
+loaderVersion="[28,)"
+issueTrackerURL="http://www.github.com/MelanX/NBTRemover/issues"
+[[mods]]
+modId="nbtremover"
+version="${file.jarVersion}"
+displayName="NBT Remover"
+updateJSONURL="https://raw.githubusercontent.com/MelanX/NBTRemover/master/update/Update.json"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/nbt-remover"
+authors="MelanX"
+description='''
+This mod adds a block which removes nbt tags from items for autocrafting compatability.
+'''
+
+[[dependencies.nbtremover]]
+    modId="forge"
+    mandatory=true
+    versionRange="[28.1,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.nbtremover]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.14.4]"
+    ordering="NONE"
+    side="BOTH"

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north,powered=false": { "model": "nbtremover:block/nbtremover" },
+    "facing=south,powered=false": { "model": "nbtremover:block/nbtremover", "y": 180 },
+    "facing=west,powered=false": { "model": "nbtremover:block/nbtremover", "y": 270 },
+    "facing=east,powered=false": { "model": "nbtremover:block/nbtremover", "y": 90 },
+    "facing=up,powered=false": { "model": "nbtremover:block/nbtremover", "x": -90 },
+    "facing=down,powered=false": { "model": "nbtremover:block/nbtremover", "x": 90 },
+    "facing=north,powered=true": { "model": "nbtremover:block/nbtremover_powered" },
+    "facing=south,powered=true": { "model": "nbtremover:block/nbtremover_powered", "y": 180 },
+    "facing=west,powered=true": { "model": "nbtremover:block/nbtremover_powered", "y": 270 },
+    "facing=east,powered=true": { "model": "nbtremover:block/nbtremover_powered", "y": 90 },
+    "facing=up,powered=true": { "model": "nbtremover:block/nbtremover_powered", "x": -90 },
+    "facing=down,powered=true": { "model": "nbtremover:block/nbtremover_powered", "x": 90 }
+  }
+}
