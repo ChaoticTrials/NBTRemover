@@ -1,6 +1,7 @@
 package de.melanx.nbtremover.block;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
@@ -92,7 +93,7 @@ public class NBTRemoverTile extends TileEntity implements ITickableTileEntity, I
 
             @Override
             public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
-                return stack.getDamage() <= 0;
+                return stack.getDamage() <= 0 && stack.getItem() != Blocks.SPAWNER.asItem();
             }
 
             @Nonnull
