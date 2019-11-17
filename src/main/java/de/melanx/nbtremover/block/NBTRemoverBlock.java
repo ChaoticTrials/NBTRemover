@@ -8,11 +8,11 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.container.INamedContainerProvider;
+import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
@@ -45,17 +45,19 @@ public class NBTRemoverBlock extends Block {
     @Override
     public void onBlockPlacedBy(World world, BlockPos pos, BlockState state, @Nullable LivingEntity entity, ItemStack stack) {
         if (entity != null) {
-            world.setBlockState(pos, state.with(BlockStateProperties.FACING, getFacingFromEntity(pos, entity)).with(BlockStateProperties.POWERED, false), 2);
+            world.setBlockState(pos, state.with(BlockStateProperties.POWERED, false), 2);
         }
+    }
+
+    @Nullable
+    @Override
+    public BlockState getStateForPlacement(BlockItemUseContext context) {
+        return this.getDefaultState().with(BlockStateProperties.FACING, context.getPlacementHorizontalFacing().getOpposite());
     }
 
     @Override
     public int getLightValue(BlockState state) {
         return state.get(BlockStateProperties.POWERED) ? 5 : 0;
-    }
-
-    public Direction getFacingFromEntity(BlockPos clickedBlock, LivingEntity entity) {
-        return Direction.getFacingFromVector(entity.posX - clickedBlock.getX(), entity.posY - clickedBlock.getY(), entity.posZ - clickedBlock.getZ());
     }
 
     @Override
