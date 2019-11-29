@@ -51,7 +51,7 @@ public class NBTRemoverTile extends TileEntity implements ITickableTileEntity, I
                 stackOut = stackIn.copy();
                 if (outSlotStack.isEmpty() || (outSlotStack.getItem() == stackIn.getItem() && outSlotStack.getCount() < outSlotStack.getMaxStackSize())) {
                     stackOut.setCount(1);
-                    stackIn.shrink(1);
+                    h.extractItem(0, 1, false);
                     h.insertItem(1, stackOut, false);
                     markDirty();
                 }
@@ -99,19 +99,10 @@ public class NBTRemoverTile extends TileEntity implements ITickableTileEntity, I
             @Nonnull
             @Override
             public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate) {
-                if (this.isItemValid(slot, stack)) {
+                if (stack.getDamage() > 0 && slot != 0) {
                     return stack;
-                };
-                return ItemStack.EMPTY;
-            }
-
-            @Nonnull
-            @Override
-            public ItemStack extractItem(int slot, int amount, boolean simulate) {
-                if (slot == 1) {
-                    return super.extractItem(slot, amount, simulate);
                 }
-                return ItemStack.EMPTY;
+                return super.insertItem(slot, stack, simulate);
             }
         };
     }
